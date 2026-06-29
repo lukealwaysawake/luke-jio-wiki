@@ -3,346 +3,355 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>지오와 동현 - 관계 위키</title>
+    <title>지오와 동현 - 관계위키</title>
     <meta
       name="description"
-      content="지오와 동현의 관계 서사를 나무위키식 문서 감성으로 정리한 공개 안전판 위키 페이지"
+      content="지오와 동현의 데이트 타임라인과 관계 서사를 나무위키식 문서로 정리한 공개 안전판 페이지"
     />
     <meta name="theme-color" content="#00a495" />
-    <meta property="og:title" content="지오와 동현 - 관계 위키" />
+    <meta property="og:title" content="지오와 동현 - 관계위키" />
     <meta
       property="og:description"
-      content="과외의 문장, 기억된 디테일, 길어진 통화, 공식 연애, 안정감으로 이어진 이야기."
+      content="5월 19일 구리, 5월 21일 오니바 고백, 5월 22일 수족관, 6월 23일 제로컴플렉스, 6월 27일 북촌과 한옥호텔."
     />
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./app.js"></script>
   </head>
   <body>
-    <div class="wiki-shell">
-      <header class="topbar">
-        <a class="brand" href="#top" aria-label="처음으로">
-          <span class="brand-mark">ㄴ</span>
-          <span>관계위키</span>
+    <div class="site">
+      <header class="wiki-header">
+        <a class="logo" href="#top" aria-label="처음으로">
+          <span class="logo-symbol">ㄴ</span>
+          <span class="logo-text">관계위키</span>
         </a>
-        <nav class="topnav" aria-label="상단 메뉴">
-          <a href="#overview">개요</a>
-          <a href="#people">인물</a>
-          <a href="#history">관계사</a>
-          <a href="#mechanism">작동 방식</a>
+        <nav class="global-tabs" aria-label="상단 메뉴">
+          <a class="is-active" href="#overview">문서</a>
+          <a href="#date-log">역사</a>
+          <a href="#notes">토론</a>
+          <a href="https://github.com/lukealwaysawake/luke-gio-wiki" target="_blank" rel="noreferrer">편집</a>
         </nav>
-        <button class="mode-toggle" type="button" aria-label="다크 모드 전환">
-          밤모드
-        </button>
+        <button class="theme-button" type="button" aria-label="다크 모드 전환">다크</button>
       </header>
 
-      <main id="top" class="layout">
-        <aside class="left-rail" aria-label="문서 목차">
-          <div class="rail-card">
-            <p class="rail-kicker">목차</p>
+      <main id="top" class="page-grid">
+        <aside class="side" aria-label="문서 목차">
+          <section class="side-box recent">
+            <h2>최근 수정 시각</h2>
+            <p>2026-06-29 13:38:00</p>
+          </section>
+
+          <section class="side-box">
+            <h2>목차</h2>
             <ol class="toc" id="toc">
               <li><a href="#overview">개요</a></li>
+              <li><a href="#summary">요약</a></li>
               <li><a href="#people">등장인물</a></li>
-              <li><a href="#history">관계사</a></li>
-              <li><a href="#mechanism">관계의 작동 방식</a></li>
-              <li><a href="#signals">호감/신뢰 신호</a></li>
-              <li><a href="#quotes">키워드와 명대사</a></li>
-              <li><a href="#trivia">여담</a></li>
+              <li><a href="#date-log">데이트 기록</a></li>
+              <li><a href="#meaning">관계적 의미</a></li>
+              <li><a href="#style">서사적 특징</a></li>
+              <li><a href="#notes">각주</a></li>
             </ol>
-          </div>
+          </section>
         </aside>
 
-        <article class="article" aria-label="지오와 동현 문서">
-          <section class="hero" aria-labelledby="page-title">
-            <div class="category-row" aria-label="분류">
-              <a href="#">분류: 관계</a>
-              <a href="#">분류: 2026년 연애</a>
-              <a href="#">분류: 기억형 로맨스</a>
-            </div>
+        <article class="wiki-article" aria-label="지오와 동현 문서">
+          <div class="namespace-tabs" aria-label="문서 탭">
+            <a class="selected" href="#overview">문서</a>
+            <a href="#date-log">역사</a>
+            <a href="#notes">토론</a>
+            <a href="https://github.com/lukealwaysawake/luke-gio-wiki" target="_blank" rel="noreferrer">편집</a>
+          </div>
 
-            <div class="notice">
-              <strong>공개 안전판 문서</strong>
-              <span>
-                실명, 연락처, 계정, 정확한 생시, 민감한 대화 원문은 의도적으로 제외했다.
-                이 문서는 둘의 분위기와 서사를 보여주는 위키식 전시판이다.
-              </span>
-            </div>
+          <div class="category-box" aria-label="분류">
+            <span>분류:</span>
+            <a href="#">연애</a>
+            <a href="#">데이트 기록</a>
+            <a href="#">2026년 관계사</a>
+            <a href="#">기억형 로맨스</a>
+          </div>
 
-            <div class="title-grid">
-              <div>
-                <p class="doc-label">개인용 관계 문서</p>
-                <h1 id="page-title">지오와 동현</h1>
-                <p class="subtitle">
-                  과외의 문장으로 시작해서, 기억된 취향과 길어진 통화와
-                  예측 가능한 다정함으로 이어진 이야기.
-                </p>
-                <div class="quick-stats" aria-label="핵심 요약">
-                  <span>2024 → 2026</span>
-                  <span>공식 연애 2026.05.21</span>
-                  <span>키워드: 기억 · 안정감 · 낭만</span>
-                </div>
-              </div>
+          <header class="doc-head">
+            <p class="revision">최근 수정 시각: 2026-06-29 13:38:00</p>
+            <h1>지오와 동현</h1>
+            <p class="subtitle">
+              2024년 과외의 문장으로 시작해 2026년 5월의 고백과 6월의 휴가 데이트로 이어진 관계.
+            </p>
+          </header>
 
-              <aside class="infobox" aria-label="문서 정보">
-                <div class="infobox-cover">
-                  <div class="orbit one"></div>
-                  <div class="orbit two"></div>
-                  <div class="cover-names">
-                    <span>Luke</span>
-                    <i></i>
-                    <span>Jio</span>
-                  </div>
-                </div>
-                <dl>
-                  <div>
-                    <dt>문서명</dt>
-                    <dd>지오와 동현</dd>
-                  </div>
-                  <div>
-                    <dt>관계</dt>
-                    <dd>공식 연애 초반</dd>
-                  </div>
-                  <div>
-                    <dt>시작점</dt>
-                    <dd>과외/수업 맥락에서 시작된 대화</dd>
-                  </div>
-                  <div>
-                    <dt>전환점</dt>
-                    <dd>2026년 5월 21일</dd>
-                  </div>
-                  <div>
-                    <dt>핵심 장르</dt>
-                    <dd>느린 확신, 기억, 낮은 온도의 안정감</dd>
-                  </div>
-                </dl>
-              </aside>
-            </div>
+          <section class="notice namu-notice" aria-label="공개 주의">
+            <p>
+              이 문서는 공개 배포용으로 작성되었으며, 실명 전체·연락처·계정·민감한 대화 원문·사적인 밤의 구체 묘사는 제외한다.<sup><a href="#fn-public">[공개]</a></sup>
+              다만 관계의 흐름을 이해하는 데 필요한 날짜, 장소, 사건의 순서는 보존한다.
+            </p>
           </section>
 
-          <section id="overview" class="wiki-section">
-            <h2>1. 개요 <a href="#overview">[편집]</a></h2>
+          <aside class="infobox" aria-label="관계 정보 상자">
+            <div class="infobox-title">지오와 동현</div>
+            <div class="infobox-image">
+              <span>Luke</span>
+              <i></i>
+              <span>Jio</span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th>관계</th>
+                  <td>공식 연애</td>
+                </tr>
+                <tr>
+                  <th>시작 맥락</th>
+                  <td>과외 / 수업 / 사적인 대화</td>
+                </tr>
+                <tr>
+                  <th>공식 전환</th>
+                  <td>2026년 5월 21일</td>
+                </tr>
+                <tr>
+                  <th>상징 날짜</th>
+                  <td>5월 19일 · 5월 21일 · 5월 22일 · 6월 23일 · 6월 27일</td>
+                </tr>
+                <tr>
+                  <th>키워드</th>
+                  <td>구리, 청담, 수족관, 청계천, 북촌, 한옥호텔</td>
+                </tr>
+              </tbody>
+            </table>
+          </aside>
+
+          <section id="overview" class="section-block">
+            <h2><span>1.</span> 개요</h2>
             <p>
-              <strong>지오와 동현</strong>은 2024년 과외와 수업 밖 대화에서 시작되어,
-              2026년 봄 다시 길어진 통화와 취향의 회수, 그리고 2026년 5월 21일
-              공식 연애로 이어진 관계다.
+              <strong>지오와 동현</strong>은 처음부터 거창한 연애 서사로 시작한 관계라기보다,
+              과외와 수업이라는 실용적인 문장 사이에 취향·기억·배려가 끼어들며 서서히 관계의 밀도가 올라간 케이스다.
             </p>
             <p>
-              이 관계의 특징은 빠른 고백보다 <mark>오래 기억하고 행동으로 보여주는 방식</mark>에 있다.
-              지오는 말뿐인 플러팅보다 구체적인 기억, 실제 배려, 안정적인 반복에 강하게 반응했고,
-              동현은 지오를 통해 성과나 역할이 아닌 한 사람으로 보이는 감각을 크게 느꼈다.
+              2026년 5월 19일 밤 늦게 구리에서 만난 일을 기점으로 감정의 방향이 더 선명해졌고,
+              5월 21일 청담 오니바 저녁식사와 고백을 통해 공식적으로 사귀게 되었다.
+              이후 5월 22일 수족관, 6월 23일 휴가 데이트, 6월 27일 외박 데이트를 거치며
+              관계는 <mark>말보다 장면이 먼저 쌓이는 방식</mark>으로 진행되었다.
             </p>
-            <blockquote>
-              쉽게 말하면, 이 문서는 “누가 누구를 꼬셨다”보다
-              “서로가 어떤 장면을 기억했고, 그 기억이 어떻게 관계가 됐는지”에 대한 기록이다.
-            </blockquote>
           </section>
 
-          <section id="people" class="wiki-section">
-            <h2>2. 등장인물 <a href="#people">[편집]</a></h2>
-
-            <div class="person-grid">
-              <section class="person-card">
-                <p class="card-kicker">Jio</p>
-                <h3>지오</h3>
-                <p>
-                  부드럽고 정서적 반응이 좋은 사람. 애교 있는 톤을 쓰지만,
-                  관계 기준은 꽤 선명하다. 존중, 진심, 한결같음,
-                  있는 그대로 이해받는 감각을 중요하게 본다.
-                </p>
-                <ul>
-                  <li><strong>반응 포인트:</strong> 기억력 있는 관심, 짧고 구체적인 칭찬, 행동으로 보이는 배려</li>
-                  <li><strong>안정감 기준:</strong> 1순위감, 솔직함, 예측 가능성, 경계의 명확함</li>
-                  <li><strong>좋아하는 결:</strong> 과한 이벤트보다 “나를 보고 있구나”라는 감각</li>
-                  <li><strong>상징:</strong> 황소자리적 현실감과 따뜻함, 낮은 온도의 낭만</li>
-                </ul>
-              </section>
-
-              <section class="person-card accent">
-                <p class="card-kicker">Luke / Donghyun</p>
-                <h3>동현</h3>
-                <p>
-                  강한 추진력과 말/글의 밀도를 가진 사람. 관계에서도 의미와 서사를 크게 보는 편이라,
-                  좋아하면 오래 기록하고, 디테일을 기억하고, 행동으로 회수하려 한다.
-                </p>
-                <ul>
-                  <li><strong>반응 포인트:</strong> 지적인 대화, 가치관이 흐르는 통화, 함께 생각이 이어지는 감각</li>
-                  <li><strong>관계 욕구:</strong> 의미 있는 일과 의미 있는 관계가 같이 있는 삶</li>
-                  <li><strong>주의점:</strong> 감정의 강도가 높아지면 장문/설명/확인 욕구가 과해질 수 있음</li>
-                  <li><strong>상징:</strong> 양자리적 직진성과 “비효율적인 낭만”</li>
-                </ul>
-              </section>
+          <section id="summary" class="section-block">
+            <h2><span>2.</span> 요약</h2>
+            <div class="quote-summary">
+              <p>
+                “이 관계의 핵심은 이벤트의 크기가 아니라, 밤 늦게 찾아가고, 손을 잡고 걷고,
+                꽃과 케이크를 준비하고, 다음날 아침을 챙기는 식의 구체적인 행동이다.”
+              </p>
             </div>
+
+            <table class="wiki-table key-table">
+              <tbody>
+                <tr>
+                  <th>첫 번째 전환</th>
+                  <td>5월 19일 밤, 동현이 구리로 찾아가 지오를 만남.</td>
+                </tr>
+                <tr>
+                  <th>공식 전환</th>
+                  <td>5월 21일 청담 오니바 식사 후 꽃, 케이크, 고백으로 사귀게 됨.</td>
+                </tr>
+                <tr>
+                  <th>초반 안정화</th>
+                  <td>5월 22일 점심과 수족관 데이트로 전날의 고백이 일상으로 이어짐.</td>
+                </tr>
+                <tr>
+                  <th>6월 휴가</th>
+                  <td>6월 23일 제로컴플렉스와 청계천 근처 숙소, 영쉘던, 아사이볼, 복귀.</td>
+                </tr>
+                <tr>
+                  <th>6월 외박</th>
+                  <td>6월 27일 북촌 한식 오마카세, 기가스, 한옥호텔, 다음날 파스타와 카페.</td>
+                </tr>
+              </tbody>
+            </table>
           </section>
 
-          <section id="history" class="wiki-section">
-            <h2>3. 관계사 <a href="#history">[편집]</a></h2>
-            <div class="timeline">
-              <article class="timeline-item">
-                <time>2024.07</time>
-                <h3>과외의 문장</h3>
-                <p>
-                  처음에는 수업과 일정, 해야 할 말들이 먼저 있었다. 감정은 뒤에 있었고,
-                  그 조심스러움 때문에 오히려 오래 남았다.
-                </p>
-              </article>
+          <section id="people" class="section-block">
+            <h2><span>3.</span> 등장인물</h2>
+            <h3>3.1. 지오</h3>
+            <p>
+              애교 있고 부드러운 톤을 쓰지만 관계 기준은 꽤 선명한 인물. 지오에게 중요한 것은
+              과한 말보다 “내가 말한 것을 기억하고 있구나”라는 감각, 그리고 반복되는 안정감이다.
+            </p>
+            <ul class="namu-list">
+              <li>구체적인 기억과 행동에 반응한다.</li>
+              <li>설렘과 안정감을 반대 개념으로 보지 않는다.</li>
+              <li>관계 안에서 자신이 1순위로 존중받는 감각을 중요하게 본다.</li>
+            </ul>
 
-              <article class="timeline-item">
-                <time>2024.08-10</time>
-                <h3>수업 밖의 대화</h3>
-                <p>
-                  식사, 일정, 취향, 영화와 음악 이야기가 들어오며 업무형 대화가 조금씩 사적인 결로 바뀌었다.
-                  지오는 “전에 했던 말을 기억해주는 사람”에게 특히 반응했다.
-                </p>
-              </article>
-
-              <article class="timeline-item">
-                <time>2026.04</time>
-                <h3>다시 이어진 통화</h3>
-                <p>
-                  생활권, 취향, 호감, 배려가 통화 속에서 다시 이어졌다.
-                  관계는 빠른 선언보다 리듬 관리와 자연스러운 호감 축적으로 움직였다.
-                </p>
-              </article>
-
-              <article class="timeline-item key">
-                <time>2026.05.21</time>
-                <h3>이름이 붙은 관계</h3>
-                <p>
-                  썸이 아니라 공식 연애 초반으로 전환된 날. 이후 필요한 것은 애매한 신호가 아니라
-                  직접적이되 과하지 않은 확신, 구체적 칭찬, 기억 기반 표현이었다.
-                </p>
-              </article>
-
-              <article class="timeline-item">
-                <time>2026.06</time>
-                <h3>안정감의 언어</h3>
-                <p>
-                  둘은 안정감, 예측 가능성, 이성 관계 기준, 솔직함을 두고 더 깊은 대화를 했다.
-                  이 구간은 위기가 아니라 서로를 실제 사람으로 받아들이는 과정에 가까웠다.
-                </p>
-              </article>
-
-              <article class="timeline-item">
-                <time>다음 장</time>
-                <h3>낮은 온도의 낭만</h3>
-                <p>
-                  청계천, 교보문고, 강릉, 짧은 사진 공유처럼 거창하지 않지만 기억에 남는 장면들이
-                  다음 장의 주제가 된다.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section id="mechanism" class="wiki-section">
-            <h2>4. 관계의 작동 방식 <a href="#mechanism">[편집]</a></h2>
-            <div class="rule-grid">
-              <article>
-                <span>01</span>
-                <h3>기억은 말보다 오래 간다</h3>
-                <p>
-                  지오는 “내가 말한 게 허공에 사라지지 않았다”는 감각에 강하게 반응한다.
-                  예전에 말한 취향, 추천작, 하루의 디테일을 자연스럽게 다시 꺼내는 것이 핵심이다.
-                </p>
-              </article>
-
-              <article>
-                <span>02</span>
-                <h3>안정감은 설렘의 반대가 아니다</h3>
-                <p>
-                  이 관계에서 안정감은 재미를 죽이는 규칙이 아니라 오래 가기 위한 조건이다.
-                  짧은 일정 공유, 사진 한 장, 예측 가능한 태도가 신뢰를 만든다.
-                </p>
-              </article>
-
-              <article>
-                <span>03</span>
-                <h3>실수 없음보다 복구가 중요하다</h3>
-                <p>
-                  일정 혼선이나 감정 오해가 있어도, 솔직한 설명과 행동 복구가 따라오면 관계는 꺾이지 않았다.
-                  지오는 오래 벌주는 타입보다 진정성을 읽는 쪽에 가깝다.
-                </p>
-              </article>
-
-              <article>
-                <span>04</span>
-                <h3>장문보다 낮은 온도</h3>
-                <p>
-                  동현의 감정은 깊지만, 지오에게는 때로 그 깊이가 무게로 느껴질 수 있다.
-                  그래서 핵심은 더 큰 고백이 아니라 작은 반복과 짧은 확신이다.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section id="signals" class="wiki-section">
-            <h2>5. 호감/신뢰 신호 <a href="#signals">[편집]</a></h2>
-            <div class="signal-list">
-              <div>
-                <strong>잘 먹히는 것</strong>
-                <ul>
-                  <li>오늘의 장면 하나를 짚는 구체적인 칭찬</li>
-                  <li>예전에 한 말을 기억하고 자연스럽게 다시 물어보는 것</li>
-                  <li>무거운 해명보다 “앞으로 행동으로 보여줄게”에 가까운 태도</li>
-                  <li>선택지는 2개까지만 주고, 이동 피로와 컨디션을 챙기는 데이트 리드</li>
-                </ul>
-              </div>
-              <div>
-                <strong>별로인 것</strong>
-                <ul>
-                  <li>상대 반응보다 높은 온도의 장문 감정 정리</li>
-                  <li>오빠/인생선배처럼 가르치는 느낌</li>
-                  <li>질투 유발, 일부러 늦게 답하기, 밀당처럼 보이는 행동</li>
-                  <li>좋아하는 이유를 너무 추상적으로만 말하는 것</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <section id="quotes" class="wiki-section">
-            <h2>6. 키워드와 명대사 <a href="#quotes">[편집]</a></h2>
-            <div class="quote-wall">
-              <figure>
-                <blockquote>“비효율적인 낭만”</blockquote>
-                <figcaption>빨리 끝내는 것보다 같이 머무는 시간을 중요하게 보는 관계의 별명.</figcaption>
-              </figure>
-              <figure>
-                <blockquote>“작은 공유와 반복”</blockquote>
-                <figcaption>큰 확답보다 오래 가는 안정감을 만드는 방식.</figcaption>
-              </figure>
-              <figure>
-                <blockquote>“기억된 느낌”</blockquote>
-                <figcaption>지오에게 가장 강하게 닿는 신뢰의 감각.</figcaption>
-              </figure>
-              <figure>
-                <blockquote>“실수 후 복구”</blockquote>
-                <figcaption>완벽한 운영보다 중요한 두 사람의 현실적인 관계 기술.</figcaption>
-              </figure>
-            </div>
-          </section>
-
-          <section id="trivia" class="wiki-section">
-            <h2>7. 여담 <a href="#trivia">[편집]</a></h2>
-            <ul class="trivia-list">
-              <li>
-                이 문서의 제목은 일부러 거창한 “러브스토리”가 아니라 “지오와 동현”으로 잡았다.
-                둘의 관계는 사건보다 사람 쪽에 가깝기 때문이다.
-              </li>
-              <li>
-                공개판에서는 민감한 원문을 넣지 않았다. 이 관계에 어울리는 표현 방식은
-                원문 전시보다 장면을 큐레이션하는 쪽이다.
-              </li>
-              <li>
-                가장 좋은 업데이트 방식은 큰 리뉴얼보다 새 장면이 생길 때마다
-                “한 문단씩 조용히 두꺼워지는 문서”로 남기는 것이다.
-              </li>
+            <h3>3.2. 동현</h3>
+            <p>
+              관계를 단순한 이벤트보다 서사로 받아들이는 인물. 좋아하는 사람에게는 시간을 쓰고,
+              이동하고, 장소를 고르고, 장면을 기억하는 쪽으로 마음을 표현한다.
+            </p>
+            <ul class="namu-list">
+              <li>말과 글의 밀도가 높고, 관계의 의미를 크게 본다.</li>
+              <li>꽃, 케이크, 장소 선택처럼 상징을 남기는 방식에 강하다.</li>
+              <li>다만 감정이 깊을수록 장문 설명보다 짧은 안정감이 더 유효하다.</li>
             </ul>
           </section>
 
-          <footer class="doc-footer">
+          <section id="date-log" class="section-block">
+            <h2><span>4.</span> 데이트 기록</h2>
             <p>
-              마지막 업데이트: <time datetime="2026-06-29">2026.06.29</time>
-              · private details redacted · made for Luke
+              아래는 둘의 관계가 “썸/호감”에서 “공식 연애와 반복되는 데이트”로 넘어가는 핵심 기록이다.
+              나무위키식으로 사건명과 내용을 분리해 정리했다.
             </p>
-            <a href="#top">맨 위로</a>
+
+            <div class="timeline-list">
+              <article class="date-entry">
+                <div class="date-badge">2026.05.19</div>
+                <div class="date-body">
+                  <h3>구리 심야 방문</h3>
+                  <p>
+                    동현이 밤 늦게 구리로 찾아가 지오를 만난 날. 아직 관계에 이름이 완전히 붙기 전이지만,
+                    “굳이 이동해서 만난다”는 행동 자체가 이후 전환의 예고편처럼 작동했다.
+                  </p>
+                  <dl>
+                    <div><dt>장소</dt><dd>구리</dd></div>
+                    <div><dt>핵심</dt><dd>늦은 시간의 이동, 직접 만남, 관계 온도 상승</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <article class="date-entry highlight">
+                <div class="date-badge">2026.05.21</div>
+                <div class="date-body">
+                  <h3>청담 오니바와 고백</h3>
+                  <p>
+                    지오와 청담 오니바에서 저녁식사를 한 뒤 손을 잡고 걸었다. 동현은 꽃을 건넸고,
+                    이어 바에서 케이크를 준비해 고백했다. 이 날을 기점으로 둘은 공식적으로 사귀게 되었다.
+                  </p>
+                  <p>
+                    이후 동현의 호텔 스위트룸에서 영화를 보며 시간을 보냈다. 이 장면은 이벤트의 완성보다
+                    “고백 이후에도 자연스럽게 같이 머무른 시간”이라는 점에서 의미가 있다.
+                  </p>
+                  <dl>
+                    <div><dt>장소</dt><dd>청담 오니바 · 바 · 호텔 스위트룸</dd></div>
+                    <div><dt>소품</dt><dd>꽃 · 케이크 · 영화</dd></div>
+                    <div><dt>결과</dt><dd>공식 연애 시작</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <article class="date-entry">
+                <div class="date-badge">2026.05.22</div>
+                <div class="date-body">
+                  <h3>점심과 수족관</h3>
+                  <p>
+                    전날 고백의 여운이 남아 있는 상태에서 같이 점심을 먹고 수족관에 갔다.
+                    큰 선언 다음날에도 같이 밥을 먹고 천천히 걷는 일정이 이어졌다는 점에서,
+                    관계가 이벤트로 끝나지 않고 일상으로 들어가기 시작한 날이다.
+                  </p>
+                  <dl>
+                    <div><dt>코스</dt><dd>점심 · 수족관</dd></div>
+                    <div><dt>의미</dt><dd>고백 다음날의 안정화</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <article class="date-entry">
+                <div class="date-badge">2026.06.23</div>
+                <div class="date-body">
+                  <h3>휴가, 제로컴플렉스, 청계천</h3>
+                  <p>
+                    동현이 휴가를 나와 저녁에 지오와 제로컴플렉스에 갔다. 이후 청계천 근처 숙소에서
+                    함께 쉬며 시간을 보냈고, 넷플릭스로 영쉘던을 봤다.
+                  </p>
+                  <p>
+                    다음날 아침에는 동현이 아사이볼을 시켜주었고, 지오와 더 있다가 복귀했다.
+                    공개 문서에서는 사적인 부분을 구체적으로 쓰기보다 <strong>둘만의 시간</strong>으로 정리한다.<sup><a href="#fn-private">[사적]</a></sup>
+                  </p>
+                  <dl>
+                    <div><dt>코스</dt><dd>제로컴플렉스 · 청계천 근처 숙소 · 영쉘던</dd></div>
+                    <div><dt>다음날</dt><dd>아사이볼 · 함께 있다가 복귀</dd></div>
+                    <div><dt>의미</dt><dd>휴가의 시간을 관계에 쓴 날</dd></div>
+                  </dl>
+                </div>
+              </article>
+
+              <article class="date-entry">
+                <div class="date-badge">2026.06.27-28</div>
+                <div class="date-body">
+                  <h3>외박, 북촌, 한옥호텔</h3>
+                  <p>
+                    외박을 나온 동현은 지오와 점심에 북촌에서 한식 오마카세를 먹었다.
+                    저녁에는 기가스라는 식당에 갔고, 밤에는 한옥호텔에서 함께 시간을 보냈다.
+                  </p>
+                  <p>
+                    다음날에는 점심으로 파스타를 먹고 카페에 갔다가 헤어졌다. 여기서의 “헤어짐”은 관계 종료가 아니라,
+                    데이트를 마치고 각자의 자리로 돌아간다는 의미다.
+                  </p>
+                  <dl>
+                    <div><dt>코스</dt><dd>북촌 한식 오마카세 · 기가스 · 한옥호텔</dd></div>
+                    <div><dt>다음날</dt><dd>파스타 · 카페 · 각자 복귀</dd></div>
+                    <div><dt>의미</dt><dd>외박 데이트의 완성도 높은 루틴</dd></div>
+                  </dl>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="meaning" class="section-block">
+            <h2><span>5.</span> 관계적 의미</h2>
+            <h3>5.1. 이동하는 사람</h3>
+            <p>
+              5월 19일 구리, 6월 23일 휴가 복귀 전 시간, 6월 27일 외박 일정은 모두 동현이 관계를 위해
+              실제 시간을 내고 이동했다는 공통점이 있다. 이 관계에서 마음은 주로 말보다 동선으로 드러난다.
+            </p>
+
+            <h3>5.2. 이벤트에서 일상으로</h3>
+            <p>
+              5월 21일은 꽃과 케이크와 고백이라는 상징이 있는 날이지만, 바로 다음날 점심과 수족관이 이어졌다는 점이 중요하다.
+              이벤트가 일회성 장면으로 끝나지 않고 둘의 하루 단위 리듬으로 이어졌기 때문이다.
+            </p>
+
+            <h3>5.3. 아침을 챙기는 방식</h3>
+            <p>
+              6월 24일의 아사이볼은 작은 장면이지만 관계적으로는 꽤 큰 의미가 있다. 밤의 분위기보다 다음날 아침을 어떻게 챙기느냐가
+              장기적인 안정감을 보여주는 경우가 많기 때문이다.
+            </p>
+          </section>
+
+          <section id="style" class="section-block">
+            <h2><span>6.</span> 서사적 특징</h2>
+            <div class="feature-grid">
+              <section>
+                <h3>낮은 온도의 낭만</h3>
+                <p>거창한 선언보다 손잡고 걷기, 숙소에서 영화 보기, 다음날 밥을 챙기는 식의 장면이 더 오래 남는다.</p>
+              </section>
+              <section>
+                <h3>기억된 디테일</h3>
+                <p>식당 이름, 장소, 아침 메뉴처럼 작아 보이는 정보들이 관계의 실제 질감을 만든다.</p>
+              </section>
+              <section>
+                <h3>공식성과 사적인 시간</h3>
+                <p>오니바 고백처럼 공식적인 장면과, 숙소·카페·아침처럼 사적인 장면이 균형을 이룬다.</p>
+              </section>
+              <section>
+                <h3>복귀가 있는 연애</h3>
+                <p>군 복무와 휴가/외박이라는 조건 때문에, 만남의 끝에는 늘 복귀가 있다. 그래서 짧은 시간이 더 압축된다.</p>
+              </section>
+            </div>
+          </section>
+
+          <section id="notes" class="section-block footnotes">
+            <h2><span>7.</span> 각주</h2>
+            <ol>
+              <li id="fn-public">
+                <strong>[공개]</strong> 공개 사이트 특성상 당사자의 동의 없이 너무 구체적인 사생활을 노출하지 않는 것을 기본 원칙으로 한다.
+              </li>
+              <li id="fn-private">
+                <strong>[사적]</strong> 6월 23일의 사적인 부분은 사용자가 제공한 원문보다 낮은 수위의 표현으로 바꾸었다.
+                공개 페이지에서는 이 정도가 더 안전하고 오래 보기 좋다.
+              </li>
+            </ol>
+          </section>
+
+          <footer class="wiki-footer">
+            <p>이 문서는 2026년 6월 29일에 마지막으로 편집되었습니다.</p>
+            <p>문서의 내용은 공개 안전판 기준으로 일부 표현이 축약되어 있습니다.</p>
           </footer>
         </article>
       </main>
