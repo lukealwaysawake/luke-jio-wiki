@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
+  <title id="title">Jio와 동현의 작은 궁합 카드</title>
+  <desc id="desc">동현의 직진하는 불빛과 Jio의 차분한 봄빛이 만나는 귀여운 일러스트 카드</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7d8" />
+      <stop offset="0.47" stop-color="#ffe3ea" />
+      <stop offset="1" stop-color="#dff7ee" />
+    </linearGradient>
+    <linearGradient id="mint" x1="0" x2="1">
+      <stop offset="0" stop-color="#70e1d5" />
+      <stop offset="1" stop-color="#00a495" />
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffb36b" />
+      <stop offset="1" stop-color="#ff6f91" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#725a61" flood-opacity="0.18" />
+    </filter>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif; fill: #233; }
+      .tiny { font-size: 24px; fill: #607070; letter-spacing: .02em; }
+      .label { font-size: 28px; font-weight: 800; fill: #39504d; }
+      .name { font-size: 54px; font-weight: 900; letter-spacing: -.03em; }
+      .soft { font-size: 30px; fill: #5c6b68; }
+      .keyword { font-size: 36px; font-weight: 900; fill: #0c6860; }
+      .badgeText { font-size: 25px; font-weight: 800; fill: #fff; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="880" rx="54" fill="url(#sky)" />
+  <circle cx="156" cy="136" r="92" fill="#fff3a8" opacity=".72" />
+  <circle cx="1020" cy="154" r="70" fill="#ffffff" opacity=".66" />
+  <circle cx="1090" cy="640" r="140" fill="#ffffff" opacity=".38" />
+  <circle cx="118" cy="692" r="120" fill="#ffffff" opacity=".34" />
+
+  <g opacity=".62" stroke="#fff" stroke-width="4" stroke-linecap="round">
+    <path d="M122 314 C260 220 360 420 520 306 S826 248 1038 344" fill="none" />
+    <path d="M196 730 C350 612 464 762 618 654 S870 546 1018 674" fill="none" />
+  </g>
+
+  <g fill="#fff" opacity=".88">
+    <path d="M940 82 l10 22 24 5 -18 16 3 24 -20 -12 -22 10 5 -24 -16 -18 24 -4z" />
+    <path d="M258 105 l7 16 17 3 -13 11 2 17 -14 -8 -16 7 4 -17 -12 -13 17 -3z" />
+    <path d="M1080 370 l8 18 20 4 -15 13 3 20 -18 -10 -18 8 4 -20 -13 -15 20 -3z" />
+    <path d="M98 500 l8 18 20 4 -15 13 3 20 -18 -10 -18 8 4 -20 -13 -15 20 -3z" />
+  </g>
+
+  <g transform="translate(86 76)">
+    <text class="tiny" x="0" y="0">small compatibility card</text>
+    <text x="0" y="68" style="font-size:70px;font-weight:950;letter-spacing:-.05em;">Jio × Donghyun</text>
+    <text class="soft" x="2" y="116">직진하는 마음과 차분한 봄빛이 만나는 쪽</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="104" y="250" width="348" height="438" rx="36" fill="#fffdf8" opacity=".95" />
+    <rect x="748" y="250" width="348" height="438" rx="36" fill="#fffdf8" opacity=".95" />
+    <rect x="430" y="322" width="340" height="300" rx="42" fill="#ffffff" opacity=".82" />
+  </g>
+
+  <g transform="translate(165 294)">
+    <circle cx="114" cy="110" r="86" fill="#ffdda8" />
+    <path d="M62 103 C72 42 160 36 176 104 C144 86 100 86 62 103Z" fill="#2f2a25" />
+    <circle cx="83" cy="115" r="8" fill="#2d2d2d" />
+    <circle cx="145" cy="115" r="8" fill="#2d2d2d" />
+    <path d="M94 150 C112 166 134 166 151 150" fill="none" stroke="#7c4339" stroke-width="7" stroke-linecap="round" />
+    <path d="M48 268 C75 206 155 206 182 268" fill="url(#coral)" />
+    <text class="name" x="-10" y="336">동현</text>
+    <text class="label" x="-4" y="386">봄의 불빛</text>
+    <text class="tiny" x="-4" y="426">양자리 · 먼저 움직이는 마음</text>
+  </g>
+
+  <g transform="translate(811 294)">
+    <circle cx="112" cy="110" r="86" fill="#ffd9c7" />
+    <path d="M40 118 C42 42 182 40 184 118 C150 92 82 92 40 118Z" fill="#332b2a" />
+    <path d="M58 94 C74 56 152 54 170 96" fill="#4f3a36" opacity=".55" />
+    <circle cx="82" cy="118" r="8" fill="#2d2d2d" />
+    <circle cx="144" cy="118" r="8" fill="#2d2d2d" />
+    <path d="M93 151 C113 166 133 166 151 151" fill="none" stroke="#7c4339" stroke-width="7" stroke-linecap="round" />
+    <path d="M48 268 C75 206 154 206 181 268" fill="url(#mint)" />
+    <text class="name" x="18" y="336">Jio</text>
+    <text class="label" x="-12" y="386">늦봄의 안정감</text>
+    <text class="tiny" x="-12" y="426">황소자리 · 오래 보고 고르는 마음</text>
+  </g>
+
+  <g transform="translate(600 398)" text-anchor="middle">
+    <path d="M0 -24 C-46 -78 -138 -36 -116 42 C-98 104 0 154 0 154 C0 154 98 104 116 42 C138 -36 46 -78 0 -24Z" fill="#ff6f91" opacity=".92" />
+    <text x="0" y="36" style="font-size:46px;font-weight:950;fill:#fff;letter-spacing:-.04em;">궁합</text>
+    <text x="0" y="84" class="badgeText">직진 + 안정</text>
+  </g>
+
+  <g transform="translate(220 740)">
+    <rect x="0" y="0" width="240" height="54" rx="27" fill="#ff7d8f" />
+    <text class="badgeText" x="120" y="36" text-anchor="middle">먼저 찾아감</text>
+  </g>
+  <g transform="translate(480 740)">
+    <rect x="0" y="0" width="240" height="54" rx="27" fill="#00a495" />
+    <text class="badgeText" x="120" y="36" text-anchor="middle">기억해줌</text>
+  </g>
+  <g transform="translate(740 740)">
+    <rect x="0" y="0" width="240" height="54" rx="27" fill="#7b69ff" />
+    <text class="badgeText" x="120" y="36" text-anchor="middle">예측 가능한 다정함</text>
+  </g>
+
+  <g transform="translate(472 620)" text-anchor="middle">
+    <text class="keyword" x="128" y="0">말이 통하는 낭만</text>
+    <text class="tiny" x="128" y="42">사주처럼 단정하지 않고, 둘의 리듬처럼 가볍게 보기</text>
+  </g>
+</svg>

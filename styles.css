@@ -627,6 +627,59 @@ h1 {
   color: var(--ink);
 }
 
+.call-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.call-card,
+.compatibility-copy section {
+  border: 1px solid var(--line);
+  background: var(--page-soft);
+  padding: 14px 15px;
+}
+
+.call-card h3,
+.compatibility-copy h3 {
+  margin-top: 0;
+  color: var(--brand-dark);
+}
+
+.call-card p,
+.compatibility-copy p {
+  margin-bottom: 0;
+}
+
+.compatibility-figure {
+  margin: 16px 0 14px;
+  border: 1px solid var(--line-dark);
+  background: var(--page-soft);
+  padding: 12px;
+}
+
+.compatibility-figure img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff7e8;
+}
+
+.compatibility-figure figcaption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.compatibility-copy {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1075,8 +1128,14 @@ h1 {
     height: 260px;
   }
 
+  .call-grid,
+  .compatibility-copy,
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .compatibility-figure {
+    padding: 8px;
   }
 
   .infobox th,
