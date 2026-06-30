@@ -2,6 +2,8 @@
 
 나무위키식 문서 감성으로 정리한 Luke/Jio 관계 위키 페이지.
 
+Live: <https://luke-jio-wiki.vercel.app>
+
 ## 반영된 핵심 날짜
 
 - 2026-05-19: 구리 심야 방문
