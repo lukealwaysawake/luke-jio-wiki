@@ -174,7 +174,9 @@ function initCommentBox(box) {
   const messageInput = box.querySelector('textarea[name="message"]');
 
   if (!thread) return;
-  if (nameInput) nameInput.value = safeStorage.get(COMMENT_NAME_KEY) || "동현";
+  const defaultName = box.dataset.defaultName || "동현";
+  const savedName = safeStorage.get(COMMENT_NAME_KEY);
+  if (nameInput) nameInput.value = box.dataset.defaultName || savedName || defaultName;
 
   fetchComments(thread)
     .then((comments) => {
@@ -189,7 +191,7 @@ function initCommentBox(box) {
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = (nameInput?.value || "동현").trim() || "동현";
+    const name = (nameInput?.value || defaultName).trim() || defaultName;
     const message = (messageInput?.value || "").trim();
 
     if (!message) {

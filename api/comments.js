@@ -13,6 +13,7 @@ const ALLOWED_THREADS = new Set([
   "date-2026-05-22",
   "date-2026-06-23",
   "date-2026-06-27",
+  "jio-note",
   "_healthcheck",
 ]);
 const MAX_COMMENTS_PER_THREAD = 200;

@@ -427,6 +427,74 @@ h1 {
   margin-top: 5px;
 }
 
+.jio-writing-slot {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 20px;
+  border: 1px solid #e4c875;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 230, 155, 0.45), transparent 32%),
+    linear-gradient(180deg, rgba(255, 252, 238, 0.96), rgba(255, 247, 228, 0.92));
+  padding: 16px;
+  box-shadow: 0 12px 28px rgba(128, 92, 30, 0.09);
+}
+
+:root.dark .jio-writing-slot {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 213, 116, 0.13), transparent 32%),
+    rgba(255, 247, 220, 0.06);
+}
+
+.slot-label {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 8px;
+  border: 1px solid #d4ae4d;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  color: #8a5b00;
+  padding: 3px 10px;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+:root.dark .slot-label {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f2d27d;
+}
+
+.jio-slot-copy p:not(.slot-label) {
+  margin-bottom: 10px;
+}
+
+.jio-slot-copy blockquote {
+  margin: 0;
+  border: 1px dashed #d4ae4d;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--muted);
+  padding: 18px 20px;
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+:root.dark .jio-slot-copy blockquote {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.jio-comment-box {
+  margin-top: 0;
+  border-top: 1px dashed #d4ae4d;
+}
+
+.slot-edit-hint {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
 .timeline-list {
   display: grid;
   gap: 12px;
