@@ -3,6 +3,9 @@
 :root {
   --bg: #12070d;
   --bg-warm: #32101f;
+  --bg-plum: #281023;
+  --bg-rose: #5a1839;
+  --bg-coral: #9a3354;
   --ink: #ffe3ed;
   --muted: rgba(255, 213, 229, 0.54);
   --faint: rgba(255, 213, 229, 0.34);
@@ -34,11 +37,50 @@ body {
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
-  /* warm radial lift + vignette so the black isn't flat */
   background:
-    radial-gradient(120% 80% at 50% 32%, var(--bg-warm) 0%, transparent 60%),
-    radial-gradient(140% 120% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.6) 100%),
+    linear-gradient(145deg, var(--bg) 0%, var(--bg-plum) 38%, var(--bg-warm) 68%),
+    linear-gradient(28deg, transparent 0%, rgba(154, 51, 84, 0.28) 46%, transparent 78%),
     var(--bg);
+}
+
+.landing::before {
+  content: "";
+  position: absolute;
+  inset: -24%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      118deg,
+      rgba(255, 91, 145, 0) 0%,
+      rgba(255, 91, 145, 0.2) 18%,
+      rgba(90, 24, 57, 0.48) 36%,
+      rgba(40, 16, 35, 0.1) 56%,
+      rgba(255, 157, 104, 0.14) 74%,
+      rgba(255, 91, 145, 0) 100%
+    ),
+    linear-gradient(
+      238deg,
+      rgba(18, 7, 13, 0.92) 0%,
+      rgba(54, 13, 38, 0.38) 28%,
+      rgba(130, 35, 80, 0.32) 52%,
+      rgba(22, 6, 18, 0.84) 100%
+    ),
+    conic-gradient(
+      from 210deg at 50% 52%,
+      var(--bg) 0deg,
+      var(--bg-warm) 72deg,
+      var(--bg-rose) 136deg,
+      var(--bg-plum) 218deg,
+      var(--bg-coral) 292deg,
+      var(--bg) 360deg
+    );
+  background-position: 0% 48%, 84% 22%, 50% 50%;
+  background-size: 230% 230%, 190% 210%, 170% 170%;
+  filter: saturate(118%) contrast(104%);
+  opacity: 0.86;
+  transform: translate3d(0, 0, 0) scale(1.04);
+  animation: rose-current 24s ease-in-out infinite alternate;
 }
 
 /* ---- top bar ---- */
@@ -206,8 +248,35 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .landing::before {
+    animation: none;
+  }
   .enter,
   .enter-arrow {
     transition: none;
+  }
+}
+
+@keyframes rose-current {
+  0% {
+    background-position: 0% 48%, 84% 22%, 50% 50%;
+    opacity: 0.78;
+    transform: translate3d(-1.5%, -0.5%, 0) scale(1.04) rotate(0deg);
+  }
+
+  36% {
+    background-position: 52% 24%, 42% 74%, 34% 62%;
+    opacity: 0.93;
+  }
+
+  68% {
+    background-position: 94% 58%, 18% 34%, 70% 36%;
+    opacity: 0.84;
+  }
+
+  100% {
+    background-position: 38% 86%, 76% 68%, 42% 54%;
+    opacity: 0.96;
+    transform: translate3d(1.5%, 0.8%, 0) scale(1.06) rotate(1deg);
   }
 }
