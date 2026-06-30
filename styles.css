@@ -391,6 +391,20 @@ h1 {
   text-align: left;
 }
 
+.quick-facts {
+  float: none;
+  width: auto;
+  margin: 0 22px 14px;
+}
+
+.quick-facts table {
+  table-layout: fixed;
+}
+
+.quick-facts td {
+  font-weight: 700;
+}
+
 .section-block {
   clear: none;
   padding: 8px 22px 18px;
@@ -1457,6 +1471,16 @@ h1 {
 
   .wiki-table tr + tr th {
     border-top-width: 2px;
+  }
+
+  .quick-facts th,
+  .quick-facts td {
+    display: table-cell;
+    width: auto;
+  }
+
+  .quick-facts th {
+    width: 96px;
   }
 }
 
