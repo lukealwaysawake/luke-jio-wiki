@@ -716,31 +716,20 @@ h1 {
   margin: 0 0 14px;
 }
 
-.letter-points {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin: 14px 0;
-}
-
-.letter-points section {
-  border: 1px solid var(--line);
-  background: var(--page);
-  padding: 12px 13px;
-}
-
-.letter-points strong {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--brand-dark);
-}
-
-.letter-points p {
-  margin: 0;
+.letter-only-note {
+  max-width: 68ch;
+  border: 1px solid rgba(0, 164, 149, 0.22);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+  padding: 13px 15px;
   color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.68;
+  line-height: 1.72;
 }
+
+:root.dark .letter-only-note {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 
 .letter-original {
   margin-top: 14px;
@@ -815,6 +804,16 @@ h1 {
 
 .perspective-note p {
   margin: 0;
+}
+
+.perspective-note a {
+  color: var(--brand-dark);
+  font-weight: 900;
+  text-decoration-thickness: 0.08em;
+}
+
+.perspective-note-link {
+  background: var(--page-soft);
 }
 
 .compatibility-lead {
@@ -1075,9 +1074,11 @@ h1 {
   content: "접기";
 }
 
-.comment-head h4 {
+.comment-title {
   margin: 0;
+  color: var(--ink);
   font-size: 0.98rem;
+  font-weight: 900;
 }
 
 .comment-count {
@@ -1386,11 +1387,11 @@ h1 {
   }
 
   .letter-panel {
-    padding: 14px;
+    padding: 16px 14px;
   }
 
-  .letter-points {
-    grid-template-columns: 1fr;
+  .letter-only-note {
+    padding: 12px;
   }
 
   .letter-original > summary {
@@ -1491,10 +1492,9 @@ h1 {
 }
 
 .next-plan-note {
-  display: block;
-  margin-top: 4px;
+  display: inline;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   line-height: 1.45;
 }
 

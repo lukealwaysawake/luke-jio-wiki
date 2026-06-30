@@ -192,6 +192,8 @@ function initCommentBox(box) {
   const initialName = box.dataset.defaultName ? defaultName : savedName || defaultName;
   if (authorSelect) authorSelect.value = initialName;
 
+  setCommentStatus(box, "댓글 확인 중...");
+
   fetchComments(thread)
     .then((comments) => {
       renderCommentBox(box, comments);
@@ -328,6 +330,7 @@ function initPlacesMap() {
   });
 
   placesMap.fitBounds(bounds, { padding: [28, 28] });
+  placeMapElement.dataset.mapState = "loaded";
   window.setTimeout(() => placesMap?.invalidateSize(), 80);
 }
 
