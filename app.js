@@ -62,9 +62,12 @@ function openHashTarget() {
   const target = document.querySelector(hash);
   if (!target) return;
 
-  const dateEntry = target.matches(".date-entry") ? target : target.closest(".date-entry");
-  if (dateEntry instanceof HTMLDetailsElement) {
-    dateEntry.open = true;
+  let node = target;
+  while (node && node !== document.body) {
+    if (node instanceof HTMLDetailsElement) {
+      node.open = true;
+    }
+    node = node.parentElement;
   }
 }
 
@@ -250,6 +253,95 @@ viewButtons.forEach((viewButton) => {
   viewButton.addEventListener("click", () => setViewMode(viewButton.dataset.viewMode));
 });
 setViewMode(safeStorage.get(VIEW_MODE_KEY) || "wiki");
+
+const placeMapDetails = document.querySelector("#place-map");
+const placeMapElement = document.querySelector("#places-real-map");
+let placesMap = null;
+
+const datePlaces = [
+  {
+    title: "구리",
+    subtitle: "5.19 밤",
+    coords: [37.6032591, 127.1433609],
+    dateHref: "#date-2026-05-19",
+  },
+  {
+    title: "청담",
+    subtitle: "오니바 · 고백",
+    coords: [37.5257536, 127.0523217],
+    dateHref: "#date-2026-05-21",
+  },
+  {
+    title: "수족관",
+    subtitle: "고백 다음날",
+    coords: [37.5131846, 127.0586092],
+    dateHref: "#date-2026-05-22",
+  },
+  {
+    title: "청계천",
+    subtitle: "휴가",
+    coords: [37.5684359, 126.9939503],
+    dateHref: "#date-2026-06-23",
+  },
+  {
+    title: "북촌",
+    subtitle: "한옥호텔",
+    coords: [37.5823919, 126.9858648],
+    dateHref: "#date-2026-06-27",
+  },
+];
+
+function makeGoogleMapUrl(coords) {
+  return `https://www.google.com/maps/search/?api=1&query=${coords[0]},${coords[1]}`;
+}
+
+function initPlacesMap() {
+  if (!placeMapElement || placesMap) return;
+
+  if (!window.L) {
+    placeMapElement.dataset.mapState = "fallback";
+    placeMapElement.innerHTML = '<p class="map-loading">지도를 못 불러왔어. 아래 장소 버튼으로 Google 지도에서 열 수 있어.</p>';
+    return;
+  }
+
+  placeMapElement.innerHTML = "";
+  placesMap = window.L.map(placeMapElement, {
+    scrollWheelZoom: false,
+    zoomControl: true,
+  });
+
+  window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(placesMap);
+
+  const bounds = window.L.latLngBounds(datePlaces.map((place) => place.coords));
+
+  datePlaces.forEach((place) => {
+    const popup = `
+      <strong>${place.title}</strong><br>
+      <span>${place.subtitle}</span><br>
+      <a href="${place.dateHref}">기록 보기</a>
+      · <a href="${makeGoogleMapUrl(place.coords)}" target="_blank" rel="noreferrer">Google 지도</a>
+    `;
+    window.L.marker(place.coords).addTo(placesMap).bindPopup(popup);
+  });
+
+  placesMap.fitBounds(bounds, { padding: [28, 28] });
+  window.setTimeout(() => placesMap?.invalidateSize(), 80);
+}
+
+function activatePlacesMap() {
+  if (!placeMapDetails || placeMapDetails.open) {
+    initPlacesMap();
+    window.setTimeout(() => placesMap?.invalidateSize(), 80);
+  }
+}
+
+placeMapDetails?.addEventListener("toggle", () => {
+  if (placeMapDetails.open) activatePlacesMap();
+});
+activatePlacesMap();
 
 function getKoreanDateOnly(date = new Date()) {
   const parts = new Intl.DateTimeFormat("en-CA", {
