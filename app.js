@@ -78,7 +78,7 @@ window.addEventListener("hashchange", openHashTarget);
 tocLinks.forEach((link) => link.addEventListener("click", () => setTimeout(openHashTarget, 0)));
 
 const COMMENT_AUTHOR_KEY = "luke-jio-wiki-comment-author";
-const ALLOWED_COMMENT_AUTHORS = new Set(["동현", "Jio"]);
+const ALLOWED_COMMENT_AUTHORS = new Set(["동현", "지오"]);
 const COMMENT_ENDPOINT = window.location.hostname.endsWith("github.io")
   ? "https://luke-jio-wiki.vercel.app/api/comments"
   : "/api/comments";
@@ -103,7 +103,7 @@ function makeTextNode(tag, className, text) {
 function normalizeCommentAuthor(value) {
   const raw = String(value || "").trim();
   if (ALLOWED_COMMENT_AUTHORS.has(raw)) return raw;
-  if (raw === "지오") return "Jio";
+  if (/^jio$/i.test(raw)) return "지오";
   if (raw === "Donghyun" || raw === "Luke") return "동현";
   return "";
 }

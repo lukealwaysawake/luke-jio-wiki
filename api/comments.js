@@ -17,7 +17,7 @@ const ALLOWED_THREADS = new Set([
   "_healthcheck",
 ]);
 const MAX_COMMENTS_PER_THREAD = 200;
-const ALLOWED_AUTHORS = new Set(["동현", "Jio"]);
+const ALLOWED_AUTHORS = new Set(["동현", "지오"]);
 
 function setCorsHeaders(req, res) {
   const origin = req.headers.origin;
@@ -47,7 +47,7 @@ function normalizeText(value, maxLength) {
 function normalizeAuthor(value) {
   const raw = normalizeText(value, 20);
   if (ALLOWED_AUTHORS.has(raw)) return raw;
-  if (raw === "지오") return "Jio";
+  if (/^jio$/i.test(raw)) return "지오";
   if (raw === "Donghyun" || raw === "Luke") return "동현";
   return "";
 }
