@@ -19,7 +19,9 @@ const safeStorage = {
   },
 };
 
-const savedTheme = safeStorage.get("luke-gio-wiki-theme");
+const THEME_KEY = "luke-jio-wiki-theme";
+const LEGACY_THEME_KEY = "luke-gio-wiki-theme";
+const savedTheme = safeStorage.get(THEME_KEY) || safeStorage.get(LEGACY_THEME_KEY);
 if (savedTheme === "dark") {
   root.classList.add("dark");
   if (button) button.textContent = "라이트";
@@ -28,7 +30,7 @@ if (savedTheme === "dark") {
 button?.addEventListener("click", () => {
   root.classList.toggle("dark");
   const dark = root.classList.contains("dark");
-  safeStorage.set("luke-gio-wiki-theme", dark ? "dark" : "light");
+  safeStorage.set(THEME_KEY, dark ? "dark" : "light");
   button.textContent = dark ? "라이트" : "다크";
 });
 
@@ -72,8 +74,10 @@ window.addEventListener("scroll", setActiveToc, { passive: true });
 window.addEventListener("hashchange", openHashTarget);
 tocLinks.forEach((link) => link.addEventListener("click", () => setTimeout(openHashTarget, 0)));
 
-const COMMENT_NAME_KEY = "luke-gio-wiki-comment-name";
-const COMMENT_ENDPOINT = "/api/comments";
+const COMMENT_NAME_KEY = "luke-jio-wiki-comment-name";
+const COMMENT_ENDPOINT = window.location.hostname.endsWith("github.io")
+  ? "https://luke-gio-wiki.vercel.app/api/comments"
+  : "/api/comments";
 
 function formatCommentTime(value) {
   const date = new Date(value);

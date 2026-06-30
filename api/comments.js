@@ -1,6 +1,12 @@
 const { get, put, BlobPreconditionFailedError } = require("@vercel/blob");
 
-const STORE_PATH = "comments/luke-gio-wiki.json";
+const STORE_PATH = "comments/luke-jio-wiki.json";
+const LEGACY_STORE_PATH = "comments/luke-gio-wiki.json";
+const ALLOWED_ORIGINS = new Set([
+  "https://luke-gio-wiki.vercel.app",
+  "https://luke-jio-wiki.vercel.app",
+  "https://lukealwaysawake.github.io",
+]);
 const ALLOWED_THREADS = new Set([
   "date-2026-05-19",
   "date-2026-05-21",
@@ -10,6 +16,16 @@ const ALLOWED_THREADS = new Set([
   "_healthcheck",
 ]);
 const MAX_COMMENTS_PER_THREAD = 200;
+
+function setCorsHeaders(req, res) {
+  const origin = req.headers.origin;
+  if (origin && ALLOWED_ORIGINS.has(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+}
 
 function sendJson(res, statusCode, payload) {
   res.statusCode = statusCode;
@@ -62,23 +78,40 @@ async function streamToText(stream) {
   return new Response(stream).text();
 }
 
-async function readStore() {
-  const result = await get(STORE_PATH, { access: "public" });
+async function readStoreFrom(pathname) {
+  const result = await get(pathname, { access: "public" });
   if (!result || result.statusCode !== 200) {
-    return { store: emptyStore(), etag: null };
+    return { store: emptyStore(), etag: null, exists: false };
   }
 
   const raw = await streamToText(result.stream);
-  if (!raw) return { store: emptyStore(), etag: result.blob?.etag || null };
+  if (!raw) return { store: emptyStore(), etag: result.blob?.etag || null, exists: true };
 
   try {
     return {
       store: normalizeStore(JSON.parse(raw)),
       etag: result.blob?.etag || null,
+      exists: true,
     };
   } catch {
-    return { store: emptyStore(), etag: result.blob?.etag || null };
+    return { store: emptyStore(), etag: result.blob?.etag || null, exists: true };
   }
+}
+
+function hasAnyComments(store) {
+  return Object.values(store.threads || {}).some((comments) => Array.isArray(comments) && comments.length > 0);
+}
+
+async function readStore() {
+  const primary = await readStoreFrom(STORE_PATH);
+  if (primary.exists || hasAnyComments(primary.store)) return primary;
+
+  const legacy = await readStoreFrom(LEGACY_STORE_PATH);
+  if (hasAnyComments(legacy.store)) {
+    return { store: legacy.store, etag: null, exists: false };
+  }
+
+  return primary;
 }
 
 async function writeStore(store, etag) {
@@ -104,7 +137,7 @@ async function readJsonBody(req) {
 }
 
 function getThreadFromRequest(req) {
-  const url = new URL(req.url || "/api/comments", "https://luke-gio-wiki.vercel.app");
+  const url = new URL(req.url || "/api/comments", "https://luke-jio-wiki.vercel.app");
   return url.searchParams.get("thread");
 }
 
@@ -145,10 +178,13 @@ async function appendComment(input) {
 }
 
 module.exports = async function handler(req, res) {
+  setCorsHeaders(req, res);
+
   try {
     if (req.method === "OPTIONS") {
-      res.setHeader("Allow", "GET, POST, OPTIONS");
-      return sendJson(res, 204, {});
+      res.statusCode = 204;
+      res.end();
+      return;
     }
 
     if (req.method === "GET") {
