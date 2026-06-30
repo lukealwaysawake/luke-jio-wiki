@@ -37,15 +37,16 @@ FRAME_MS = 120
 # Dark -> light glyph ramp.
 RAMP = " .,:;irsXA253hMHGS#9B&@"
 
-# Pink palette, dark -> light. Derived from the source art (deep rose to cream).
+# Warm ivory monochrome, dark -> light. Reads as a glowing off-white figure on
+# a near-black background — editorial, not cute.
 PALETTE = [
-    "#b22f63",  # deep rose (outlines / bow shadow)
-    "#d94f87",  # rose
-    "#ef76a6",  # bow / cheeks
-    "#f7a8c8",  # mid pink
-    "#fcc9dd",  # light pink
-    "#ffe3ee",  # blush white
-    "#fff4f8",  # near white
+    "#5b574e",  # dim (outlines)
+    "#787163",
+    "#968d7c",
+    "#b4ab98",
+    "#cfc6b2",
+    "#e6ddc9",
+    "#f4ecd9",  # brightest (fur highlights)
 ]
 
 

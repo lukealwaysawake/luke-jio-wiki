@@ -1,18 +1,24 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>지오 ♥ 동현 · 관계위키</title>
+    <title>JIO ✕ DH — The Archive</title>
     <meta
       name="description"
-      content="지오와 동현이 같이 보낸 날들과 통화로 쌓인 마음을 모아둔 관계위키 — 들어가기"
+      content="A living archive of two people and the days between them."
     />
-    <meta name="theme-color" content="#ffd7e6" />
-    <meta property="og:title" content="지오 ♥ 동현 · 관계위키" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta property="og:title" content="JIO ✕ DH — The Archive" />
     <meta
       property="og:description"
-      content="구리, 오니바 고백, 수족관, 제로컴플렉스, 북촌, 한옥호텔, 그리고 통화로 쌓인 마음의 기록."
+      content="A living archive of two people and the days between them."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="./landing.css" />
     <script>
@@ -20,38 +26,36 @@
       if (location.hostname === "luke-gio-wiki.vercel.app") {
         location.replace(`https://luke-jio-wiki.vercel.app/${location.search}${location.hash}`);
       }
-      // Match whatever theme the visitor last chose in the wiki.
-      try {
-        var saved =
-          localStorage.getItem("luke-jio-wiki-theme") ||
-          localStorage.getItem("luke-gio-wiki-theme");
-        if (saved === "dark") document.documentElement.classList.add("dark");
-      } catch (e) {}
     </script>
     <script defer src="./kitty-frames.js"></script>
     <script defer src="./landing.js"></script>
   </head>
   <body>
     <main class="landing">
-      <pre id="kitty" class="kitty" aria-hidden="true"></pre>
+      <header class="topbar">
+        <span class="wordmark">JIO&nbsp;<span class="x">✕</span>&nbsp;DH</span>
+        <span class="topbar-meta">Est. 2026</span>
+      </header>
 
-      <section class="landing-card">
-        <p class="eyebrow">관계위키 · since 2026.05.21</p>
-        <h1 class="landing-title">
-          지오 <span class="heart" aria-hidden="true">♥</span> 동현
-        </h1>
-        <p class="landing-sub">
-          같이 보낸 날들과 통화로 쌓인 마음을<br />
-          나무위키처럼 정리해 둔 우리만의 문서.
-        </p>
-        <a class="enter-button" href="./wiki.html">
-          자세히보기
+      <div class="stage">
+        <pre id="kitty" class="kitty" aria-hidden="true"></pre>
+      </div>
+
+      <section class="hero">
+        <p class="eyebrow">The Relationship Archive</p>
+        <h1 class="headline">Two people,<br />every day kept.</h1>
+        <a class="enter" href="./wiki.html">
+          <span>Enter the archive</span>
           <span class="enter-arrow" aria-hidden="true">→</span>
         </a>
-        <p class="landing-foot">
-          <a href="https://github.com/lukealwaysawake/luke-jio-wiki" target="_blank" rel="noreferrer">편집 · GitHub</a>
-        </p>
       </section>
+
+      <footer class="footer">
+        <span>Seoul</span>
+        <span class="footer-dot" aria-hidden="true">·</span>
+        <span>Since May 2026</span>
+        <a class="footer-edit" href="https://github.com/lukealwaysawake/luke-jio-wiki" target="_blank" rel="noreferrer">Edit ↗</a>
+      </footer>
     </main>
   </body>
 </html>
