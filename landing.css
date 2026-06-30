@@ -87,17 +87,6 @@ body {
   letter-spacing: 0;
   opacity: 0.92;
   filter: drop-shadow(0 0 30px rgba(244, 236, 217, 0.12));
-  animation: kitty-float 7s ease-in-out infinite;
-}
-
-@keyframes kitty-float {
-  0%,
-  100% {
-    transform: translateY(-9vh);
-  }
-  50% {
-    transform: translateY(calc(-9vh - 10px));
-  }
 }
 
 /* scrim so the lower hero text stays legible over the figure */
@@ -193,15 +182,6 @@ body {
 .footer-dot {
   opacity: 0.6;
 }
-.footer-edit {
-  margin-left: auto;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-.footer-edit:hover {
-  color: var(--ink);
-}
 
 /* ---- mobile ---- */
 @media (max-width: 600px) {
@@ -210,15 +190,6 @@ body {
     transform: translateY(-9vh);
     opacity: 0.9;
   }
-  @keyframes kitty-float {
-    0%,
-    100% {
-      transform: translateY(-9vh);
-    }
-    50% {
-      transform: translateY(calc(-9vh - 8px));
-    }
-  }
   .hero {
     bottom: clamp(72px, 12vh, 110px);
   }
@@ -226,18 +197,9 @@ body {
     justify-content: center;
     flex-wrap: wrap;
   }
-  .footer-edit {
-    margin-left: 0;
-    flex-basis: 100%;
-    text-align: center;
-    margin-top: 6px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kitty {
-    animation: none;
-  }
   .enter,
   .enter-arrow {
     transition: none;
