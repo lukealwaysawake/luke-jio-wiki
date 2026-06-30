@@ -22,7 +22,7 @@
     </script>
     <script defer src="./app.js"></script>
   </head>
-  <body>
+  <body class="view-mode-wiki">
     <div class="site">
       <header class="wiki-header">
         <a class="logo" href="#top" aria-label="처음으로">
@@ -109,6 +109,7 @@
               <li><a href="#compatibility">5. 작은 궁합 카드</a></li>
               <li><a href="#date-log">6. 데이트 기록</a>
                 <ol>
+                  <li><a href="#place-map">6.0. 장소 지도</a></li>
                   <li><a href="#date-2026-05-19">6.1. 구리 심야 방문</a></li>
                   <li><a href="#date-2026-05-21">6.2. 청담 오니바와 고백</a></li>
                   <li><a href="#date-2026-05-22">6.3. 점심과 수족관</a></li>
@@ -147,6 +148,14 @@
                 <tr>
                   <th>사귀기 시작한 날</th>
                   <td>2026년 5월 21일</td>
+                </tr>
+                <tr class="auto-counter-row">
+                  <th>함께한 시간</th>
+                  <td><time class="d-day-counter" data-start-date="2026-05-21" datetime="2026-05-21">D+계산 중</time></td>
+                </tr>
+                <tr>
+                  <th>다가오는 날</th>
+                  <td><span class="next-plan">강릉</span><small class="next-plan-note">다음 휴가에 꺼내볼 이름</small></td>
                 </tr>
                 <tr>
                   <th>오래 남은 날들</th>
@@ -377,14 +386,21 @@
 
           <section id="date-log" class="section-block">
             <h2><span>6.</span> 데이트 기록</h2>
-            <p>
-              날짜별로 접어볼 수 있게 정리했다.
-              보고 싶은 날만 펼치면 된다.
-            </p>
+            <div class="date-log-head">
+              <p>
+                날짜별로 접어볼 수 있게 정리했다.
+                보고 싶은 날만 펼치면 된다.
+              </p>
+              <div class="view-switch" role="group" aria-label="데이트 기록 보기 방식">
+                <button type="button" class="is-active" data-view-mode="wiki" aria-pressed="true">위키 뷰</button>
+                <button type="button" data-view-mode="timeline" aria-pressed="false">연대기 뷰</button>
+              </div>
+            </div>
 
             <details class="section-toc date-toc" open>
               <summary>데이트 기록 목차</summary>
               <ol class="toc">
+                <li><a href="#place-map">6.0. 장소 지도</a></li>
                 <li><a href="#date-2026-05-19">6.1. 2026.05.19 구리 심야 방문</a></li>
                 <li><a href="#date-2026-05-21">6.2. 2026.05.21 청담 오니바와 고백</a></li>
                 <li><a href="#date-2026-05-22">6.3. 2026.05.22 점심과 수족관</a></li>
@@ -392,6 +408,20 @@
                 <li><a href="#date-2026-06-27">6.5. 2026.06.27-28 외박, 북촌, 한옥호텔</a></li>
               </ol>
             </details>
+
+            <section id="place-map" class="place-map" aria-label="둘이 다녀온 장소 지도">
+              <div class="place-map-copy">
+                <h3>6.0. 장소 지도</h3>
+                <p>장소 이름을 누르면 그날의 기록으로 바로 이동한다. 실제 지도라기보다, 둘이 지나간 동선을 위키식으로 접어둔 작은 지도다.</p>
+              </div>
+              <div class="map-board" aria-label="장소 핀">
+                <a class="map-pin pin-guri" href="#date-2026-05-19"><strong>구리</strong><span>5.19 밤</span></a>
+                <a class="map-pin pin-cheongdam" href="#date-2026-05-21"><strong>청담</strong><span>오니바 · 고백</span></a>
+                <a class="map-pin pin-aquarium" href="#date-2026-05-22"><strong>수족관</strong><span>고백 다음날</span></a>
+                <a class="map-pin pin-cheonggye" href="#date-2026-06-23"><strong>청계천</strong><span>휴가</span></a>
+                <a class="map-pin pin-bukchon" href="#date-2026-06-27"><strong>북촌</strong><span>한옥호텔</span></a>
+              </div>
+            </section>
 
             <div class="timeline-list">
               <details id="date-2026-05-19" class="date-entry" open>
@@ -771,6 +801,15 @@
           </footer>
         </article>
       </main>
+    </div>
+    <div class="media-lightbox" id="media-lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+      <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="이전 사진">‹</button>
+      <figure class="lightbox-figure">
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="다음 사진">›</button>
     </div>
   </body>
 </html>

@@ -76,7 +76,7 @@ tocLinks.forEach((link) => link.addEventListener("click", () => setTimeout(openH
 
 const COMMENT_NAME_KEY = "luke-jio-wiki-comment-name";
 const COMMENT_ENDPOINT = window.location.hostname.endsWith("github.io")
-  ? "https://luke-gio-wiki.vercel.app/api/comments"
+  ? "https://luke-jio-wiki.vercel.app/api/comments"
   : "/api/comments";
 
 function formatCommentTime(value) {
@@ -219,3 +219,125 @@ function initCommentBox(box) {
 }
 
 Array.from(document.querySelectorAll(".comment-box")).forEach(initCommentBox);
+
+const VIEW_MODE_KEY = "luke-jio-wiki-view-mode";
+const viewButtons = Array.from(document.querySelectorAll("[data-view-mode]"));
+
+function setViewMode(mode) {
+  const nextMode = mode === "timeline" ? "timeline" : "wiki";
+  document.body.classList.toggle("view-mode-timeline", nextMode === "timeline");
+  document.body.classList.toggle("view-mode-wiki", nextMode === "wiki");
+  viewButtons.forEach((viewButton) => {
+    const active = viewButton.dataset.viewMode === nextMode;
+    viewButton.classList.toggle("is-active", active);
+    viewButton.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  safeStorage.set(VIEW_MODE_KEY, nextMode);
+}
+
+viewButtons.forEach((viewButton) => {
+  viewButton.addEventListener("click", () => setViewMode(viewButton.dataset.viewMode));
+});
+setViewMode(safeStorage.get(VIEW_MODE_KEY) || "wiki");
+
+function getKoreanDateOnly(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day)));
+}
+
+function initDdayCounter() {
+  const counter = document.querySelector("[data-start-date]");
+  if (!counter) return;
+
+  const [year, month, day] = counter.dataset.startDate.split("-").map(Number);
+  const startDate = new Date(Date.UTC(year, month - 1, day));
+  const today = getKoreanDateOnly();
+  const days = Math.floor((today - startDate) / 86400000) + 1;
+  counter.textContent = days > 0 ? `D+${days}` : `D${days}`;
+}
+
+initDdayCounter();
+
+const lightbox = document.querySelector("#media-lightbox");
+const lightboxImage = lightbox?.querySelector("img");
+const lightboxCaption = lightbox?.querySelector("figcaption");
+const lightboxClose = lightbox?.querySelector(".lightbox-close");
+const lightboxPrev = lightbox?.querySelector(".lightbox-prev");
+const lightboxNext = lightbox?.querySelector(".lightbox-next");
+const lightboxItems = Array.from(document.querySelectorAll(".media-gallery .media-item img, .photo-card img"));
+let lightboxIndex = 0;
+let touchStartX = null;
+
+function getMediaCaption(image) {
+  const caption = image.closest("figure")?.querySelector("figcaption");
+  if (!caption) return image.alt || "";
+  return caption.textContent.replace(/\s+/g, " ").trim();
+}
+
+function showLightbox(index) {
+  if (!lightbox || !lightboxImage || !lightboxCaption || lightboxItems.length === 0) return;
+  lightboxIndex = (index + lightboxItems.length) % lightboxItems.length;
+  const current = lightboxItems[lightboxIndex];
+  lightboxImage.src = current.currentSrc || current.src;
+  lightboxImage.alt = current.alt || "데이트 사진";
+  lightboxCaption.textContent = getMediaCaption(current);
+  lightbox.hidden = false;
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("lightbox-open");
+  lightboxClose?.focus();
+}
+
+function hideLightbox() {
+  if (!lightbox) return;
+  lightbox.hidden = true;
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
+}
+
+function moveLightbox(direction) {
+  showLightbox(lightboxIndex + direction);
+}
+
+lightboxItems.forEach((image, index) => {
+  image.classList.add("is-lightboxable");
+  image.tabIndex = 0;
+  image.setAttribute("role", "button");
+  image.setAttribute("aria-label", "사진 크게 보기");
+  image.addEventListener("click", () => showLightbox(index));
+  image.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      showLightbox(index);
+    }
+  });
+});
+
+lightboxClose?.addEventListener("click", hideLightbox);
+lightboxPrev?.addEventListener("click", () => moveLightbox(-1));
+lightboxNext?.addEventListener("click", () => moveLightbox(1));
+lightbox?.addEventListener("click", (event) => {
+  if (event.target === lightbox) hideLightbox();
+});
+lightbox?.addEventListener("touchstart", (event) => {
+  touchStartX = event.changedTouches[0]?.clientX ?? null;
+}, { passive: true });
+lightbox?.addEventListener("touchend", (event) => {
+  if (touchStartX === null) return;
+  const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
+  const diff = touchEndX - touchStartX;
+  touchStartX = null;
+  if (Math.abs(diff) < 45) return;
+  moveLightbox(diff > 0 ? -1 : 1);
+}, { passive: true });
+window.addEventListener("keydown", (event) => {
+  if (!lightbox || lightbox.hidden) return;
+  if (event.key === "Escape") hideLightbox();
+  if (event.key === "ArrowLeft") moveLightbox(-1);
+  if (event.key === "ArrowRight") moveLightbox(1);
+});
