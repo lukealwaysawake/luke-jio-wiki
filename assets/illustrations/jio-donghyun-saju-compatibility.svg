@@ -1,110 +1,192 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
-  <title id="title">Jio와 동현의 작은 궁합 카드</title>
-  <desc id="desc">동현의 직진하는 불빛과 Jio의 차분한 봄빛이 만나는 귀여운 일러스트 카드</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" role="img" aria-labelledby="title desc">
+  <title id="title">Jio와 동현의 목생화 손그림 궁합</title>
+  <desc id="desc">목생화, 인연 80, 친밀 80, 애정 85, 타고난 호감 커플과 강대강 주의점을 종이 낙서처럼 그린 일러스트</desc>
   <defs>
-    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#fff7d8" />
-      <stop offset="0.47" stop-color="#ffe3ea" />
-      <stop offset="1" stop-color="#dff7ee" />
-    </linearGradient>
-    <linearGradient id="mint" x1="0" x2="1">
-      <stop offset="0" stop-color="#70e1d5" />
-      <stop offset="1" stop-color="#00a495" />
-    </linearGradient>
-    <linearGradient id="coral" x1="0" x2="1">
-      <stop offset="0" stop-color="#ffb36b" />
-      <stop offset="1" stop-color="#ff6f91" />
-    </linearGradient>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#725a61" flood-opacity="0.18" />
+    <filter id="paper" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="19" result="noise" />
+      <feColorMatrix in="noise" type="saturate" values="0" result="grain" />
+      <feBlend in="SourceGraphic" in2="grain" mode="multiply" />
+    </filter>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="turb" />
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="3.2" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="15" flood-color="#5f412b" flood-opacity="0.16" />
     </filter>
     <style>
-      text { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif; fill: #233; }
-      .tiny { font-size: 24px; fill: #607070; letter-spacing: .02em; }
-      .label { font-size: 28px; font-weight: 800; fill: #39504d; }
-      .name { font-size: 54px; font-weight: 900; letter-spacing: -.03em; }
-      .soft { font-size: 30px; fill: #5c6b68; }
-      .keyword { font-size: 36px; font-weight: 900; fill: #0c6860; }
-      .badgeText { font-size: 25px; font-weight: 800; fill: #fff; }
+      text { font-family: "Nanum Pen Script", "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif; fill: #32281f; }
+      .pen { fill: none; stroke: #30251f; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+      .thin { fill: none; stroke: #4a3a31; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough); }
+      .wash { opacity: .82; filter: url(#rough); }
+      .tiny { font-size: 26px; fill: #6b5d52; letter-spacing: -.01em; }
+      .small { font-size: 32px; fill: #4c4037; letter-spacing: -.02em; }
+      .mid { font-size: 42px; font-weight: 800; letter-spacing: -.04em; }
+      .big { font-size: 84px; font-weight: 900; letter-spacing: -.075em; }
+      .tag { font-size: 30px; font-weight: 800; letter-spacing: -.035em; }
+      .score { font-size: 36px; font-weight: 900; letter-spacing: -.045em; }
+      .note { font-size: 31px; font-weight: 800; letter-spacing: -.035em; }
+      .label { font-size: 39px; font-weight: 950; letter-spacing: -.055em; }
+      .subnote { font-size: 30px; font-weight: 800; letter-spacing: -.04em; }
+      .warningLabel { font-size: 44px; font-weight: 950; letter-spacing: -.06em; }
+      .warningSub { font-size: 33px; font-weight: 850; letter-spacing: -.045em; }
+      .white { fill: #fffdf7; }
+      .green { fill: #1f6f4c; }
+      .fire { fill: #d44d28; }
+      .blue { fill: #48728f; }
     </style>
   </defs>
 
-  <rect width="1200" height="880" rx="54" fill="url(#sky)" />
-  <circle cx="156" cy="136" r="92" fill="#fff3a8" opacity=".72" />
-  <circle cx="1020" cy="154" r="70" fill="#ffffff" opacity=".66" />
-  <circle cx="1090" cy="640" r="140" fill="#ffffff" opacity=".38" />
-  <circle cx="118" cy="692" r="120" fill="#ffffff" opacity=".34" />
-
-  <g opacity=".62" stroke="#fff" stroke-width="4" stroke-linecap="round">
-    <path d="M122 314 C260 220 360 420 520 306 S826 248 1038 344" fill="none" />
-    <path d="M196 730 C350 612 464 762 618 654 S870 546 1018 674" fill="none" />
+  <rect width="1400" height="980" rx="46" fill="#fff8e8" />
+  <g filter="url(#paper)">
+    <rect x="26" y="24" width="1348" height="932" rx="40" fill="#fff3d7" />
+    <path d="M74 164 C278 54 480 124 658 82 C886 28 1120 84 1308 42 L1344 936 L54 942 Z" fill="#fff7df" opacity=".9" />
+    <path d="M72 836 C244 760 415 884 600 824 C806 756 1047 778 1328 852 L1328 940 L70 940 Z" fill="#f6efd6" opacity=".65" />
   </g>
 
-  <g fill="#fff" opacity=".88">
-    <path d="M940 82 l10 22 24 5 -18 16 3 24 -20 -12 -22 10 5 -24 -16 -18 24 -4z" />
-    <path d="M258 105 l7 16 17 3 -13 11 2 17 -14 -8 -16 7 4 -17 -12 -13 17 -3z" />
-    <path d="M1080 370 l8 18 20 4 -15 13 3 20 -18 -10 -18 8 4 -20 -13 -15 20 -3z" />
-    <path d="M98 500 l8 18 20 4 -15 13 3 20 -18 -10 -18 8 4 -20 -13 -15 20 -3z" />
+  <!-- loose watercolor blobs -->
+  <g class="wash">
+    <path d="M111 604 C104 455 208 344 355 365 C486 384 531 535 472 646 C415 751 251 782 159 708 C126 681 113 648 111 604Z" fill="#b8df93" opacity=".72" />
+    <path d="M842 392 C948 268 1139 284 1228 411 C1314 533 1214 721 1058 724 C905 727 780 620 800 500 C806 461 819 421 842 392Z" fill="#ffb15f" opacity=".7" />
+    <path d="M464 216 C536 132 723 122 812 206 C907 296 872 435 746 462 C620 490 457 430 429 319 C421 284 435 248 464 216Z" fill="#ffd36b" opacity=".42" />
+    <path d="M538 696 C604 626 744 608 837 668 C936 732 914 858 792 900 C671 941 516 890 498 792 C492 756 510 724 538 696Z" fill="#f7a7c0" opacity=".45" />
   </g>
 
-  <g transform="translate(86 76)">
-    <text class="tiny" x="0" y="0">small compatibility card</text>
-    <text x="0" y="68" style="font-size:70px;font-weight:950;letter-spacing:-.05em;">Jio × Donghyun</text>
-    <text class="soft" x="2" y="116">직진하는 마음과 차분한 봄빛이 만나는 쪽</text>
+  <!-- hand written title -->
+  <g transform="translate(86 88) rotate(-1)">
+    <text class="tiny" x="4" y="0">짝궁합 캡처에서 가져온 핵심</text>
+    <text class="big green" x="0" y="88">목생화</text>
+    <text class="mid" x="274" y="84">Jio × 동현</text>
+    <path class="thin" d="M4 104 C160 122 312 112 486 126" stroke="#f7b233" />
+    <text class="small" x="4" y="154">나무가 불을 살리듯, 마음의 온도가 같이 올라가는 조합</text>
   </g>
 
-  <g filter="url(#softShadow)">
-    <rect x="104" y="250" width="348" height="438" rx="36" fill="#fffdf8" opacity=".95" />
-    <rect x="748" y="250" width="348" height="438" rx="36" fill="#fffdf8" opacity=".95" />
-    <rect x="430" y="322" width="340" height="300" rx="42" fill="#ffffff" opacity=".82" />
+  <!-- tree / wood side -->
+  <g transform="translate(102 255)">
+    <path class="pen" d="M122 506 C119 398 133 290 117 186 C109 136 88 92 57 48" />
+    <path class="pen" d="M118 280 C183 224 238 160 272 76" />
+    <path class="pen" d="M123 336 C78 290 38 240 24 170" />
+    <g fill="#58aa62" opacity=".92" filter="url(#rough)">
+      <path d="M243 78 C297 26 378 37 394 104 C320 121 279 121 243 78Z" />
+      <path d="M189 150 C240 99 315 104 335 166 C270 188 222 188 189 150Z" />
+      <path d="M15 152 C61 98 139 102 161 165 C96 190 49 190 15 152Z" />
+      <path d="M39 244 C92 203 158 216 171 274 C111 288 68 281 39 244Z" />
+      <path d="M158 236 C211 194 286 210 300 272 C236 286 191 278 158 236Z" />
+    </g>
+    <path class="thin" d="M253 78 C301 75 346 82 390 104" />
+    <path class="thin" d="M189 150 C240 144 283 150 332 166" />
+    <path class="thin" d="M16 152 C63 148 110 153 158 165" />
+    <text class="tag green" x="26" y="570">동현 木</text>
+    <text class="tiny" x="26" y="614">매너 있게 먼저 움직임</text>
+    <text class="tiny" x="26" y="650">장면을 크게 남김</text>
   </g>
 
-  <g transform="translate(165 294)">
-    <circle cx="114" cy="110" r="86" fill="#ffdda8" />
-    <path d="M62 103 C72 42 160 36 176 104 C144 86 100 86 62 103Z" fill="#2f2a25" />
-    <circle cx="83" cy="115" r="8" fill="#2d2d2d" />
-    <circle cx="145" cy="115" r="8" fill="#2d2d2d" />
-    <path d="M94 150 C112 166 134 166 151 150" fill="none" stroke="#7c4339" stroke-width="7" stroke-linecap="round" />
-    <path d="M48 268 C75 206 155 206 182 268" fill="url(#coral)" />
-    <text class="name" x="-10" y="336">동현</text>
-    <text class="label" x="-4" y="386">봄의 불빛</text>
-    <text class="tiny" x="-4" y="426">양자리 · 먼저 움직이는 마음</text>
+  <!-- center couple + campfire -->
+  <g transform="translate(445 262)" filter="url(#shadow)">
+    <path d="M46 428 C116 378 203 355 308 371 C430 390 511 451 566 548 C441 610 247 615 84 560 C40 545 16 484 46 428Z" fill="#fffaf0" opacity=".84" />
+  </g>
+  <g transform="translate(435 250)">
+    <path class="thin" d="M74 472 C182 548 408 546 548 478" stroke="#8a715b" opacity=".65" />
+
+    <!-- Donghyun figure -->
+    <g transform="translate(78 196) rotate(-2)">
+      <circle cx="76" cy="76" r="54" fill="#ffd9b5" filter="url(#rough)" />
+      <path class="pen" d="M29 72 C34 18 110 8 126 70 C96 54 63 55 29 72Z" />
+      <circle cx="55" cy="81" r="5" fill="#30251f" />
+      <circle cx="91" cy="80" r="5" fill="#30251f" />
+      <path class="thin" d="M61 105 C74 115 89 114 101 103" />
+      <path d="M26 190 C43 132 113 130 134 190 C111 207 56 207 26 190Z" fill="#7bbd77" opacity=".92" filter="url(#rough)" />
+      <path class="thin" d="M41 153 C82 174 112 170 132 145" />
+      <text class="tiny" x="10" y="242">매너</text>
+    </g>
+
+    <!-- Jio figure -->
+    <g transform="translate(384 188) rotate(2)">
+      <circle cx="78" cy="78" r="54" fill="#ffd4c8" filter="url(#rough)" />
+      <path class="pen" d="M23 82 C20 18 136 12 137 84 C100 62 62 63 23 82Z" />
+      <circle cx="58" cy="83" r="5" fill="#30251f" />
+      <circle cx="96" cy="83" r="5" fill="#30251f" />
+      <path class="thin" d="M62 104 C78 120 96 119 112 103" />
+      <path d="M22 197 C39 132 116 128 140 197 C112 216 55 215 22 197Z" fill="#f88964" opacity=".94" filter="url(#rough)" />
+      <path class="thin" d="M32 151 C74 178 116 176 141 146" />
+      <text class="tiny" x="10" y="248">리액션</text>
+    </g>
+
+    <!-- fire -->
+    <g transform="translate(256 386)">
+      <path d="M0 86 C40 44 20 18 65 0 C52 42 104 45 86 94 C70 139 21 131 0 86Z" fill="#f35a2e" filter="url(#rough)" />
+      <path d="M39 94 C56 68 46 47 72 31 C67 64 101 70 83 104 C68 132 47 120 39 94Z" fill="#ffd45b" filter="url(#rough)" />
+      <path class="pen" d="M-30 124 C24 102 78 103 132 124" stroke="#6b4a30" />
+      <path class="thin" d="M-6 137 L118 103" stroke="#6b4a30" />
+      <path class="thin" d="M8 104 L125 139" stroke="#6b4a30" />
+    </g>
+
+    <path class="thin" d="M212 298 C250 331 296 330 336 297" stroke="#d44d28" />
+    <text class="note fire" x="182" y="124">타고난 호감 커플</text>
+    <text class="small" x="164" y="170">첫인상부터 높고, 시간이 갈수록 가까워짐</text>
   </g>
 
-  <g transform="translate(811 294)">
-    <circle cx="112" cy="110" r="86" fill="#ffd9c7" />
-    <path d="M40 118 C42 42 182 40 184 118 C150 92 82 92 40 118Z" fill="#332b2a" />
-    <path d="M58 94 C74 56 152 54 170 96" fill="#4f3a36" opacity=".55" />
-    <circle cx="82" cy="118" r="8" fill="#2d2d2d" />
-    <circle cx="144" cy="118" r="8" fill="#2d2d2d" />
-    <path d="M93 151 C113 166 133 166 151 151" fill="none" stroke="#7c4339" stroke-width="7" stroke-linecap="round" />
-    <path d="M48 268 C75 206 154 206 181 268" fill="url(#mint)" />
-    <text class="name" x="18" y="336">Jio</text>
-    <text class="label" x="-12" y="386">늦봄의 안정감</text>
-    <text class="tiny" x="-12" y="426">황소자리 · 오래 보고 고르는 마음</text>
+  <!-- fire side -->
+  <g transform="translate(944 245)">
+    <path class="pen" d="M170 474 C260 402 308 322 306 231 C305 152 260 82 204 44" stroke="#a5502b" />
+    <g filter="url(#rough)">
+      <path d="M198 72 C258 109 307 167 297 245 C273 208 238 218 218 252 C230 178 169 153 198 72Z" fill="#f26b3c" opacity=".86" />
+      <path d="M268 162 C348 202 384 282 352 360 C324 312 282 330 254 373 C274 292 211 248 268 162Z" fill="#ff9d48" opacity=".72" />
+      <path d="M160 318 C226 344 263 409 238 478 C213 432 174 441 146 484 C168 410 106 380 160 318Z" fill="#ffd15c" opacity=".7" />
+    </g>
+    <path class="thin" d="M203 72 C249 128 252 178 220 251" stroke="#7a3c27" opacity=".62" />
+    <path class="thin" d="M267 163 C317 236 320 295 254 374" stroke="#7a3c27" opacity=".55" />
+    <text class="tag fire" x="118" y="570">Jio 火</text>
+    <text class="tiny" x="118" y="614">작은 것에도 따뜻한 반응</text>
+    <text class="tiny" x="118" y="650">분위기를 밝게 살림</text>
   </g>
 
-  <g transform="translate(600 398)" text-anchor="middle">
-    <path d="M0 -24 C-46 -78 -138 -36 -116 42 C-98 104 0 154 0 154 C0 154 98 104 116 42 C138 -36 46 -78 0 -24Z" fill="#ff6f91" opacity=".92" />
-    <text x="0" y="36" style="font-size:46px;font-weight:950;fill:#fff;letter-spacing:-.04em;">궁합</text>
-    <text x="0" y="84" class="badgeText">직진 + 안정</text>
+  <!-- score stones -->
+  <g transform="translate(118 760)">
+    <g transform="rotate(-3)">
+      <path d="M0 20 C30 -10 145 -5 176 24 C207 54 176 101 94 104 C24 107 -32 61 0 20Z" fill="#fffdf5" stroke="#40332a" stroke-width="4" filter="url(#rough)" />
+      <text class="score" x="38" y="65">인연 80</text>
+    </g>
+    <g transform="translate(220 8) rotate(2)">
+      <path d="M0 20 C32 -8 143 -7 176 24 C207 55 177 102 94 105 C22 107 -31 61 0 20Z" fill="#fffdf5" stroke="#40332a" stroke-width="4" filter="url(#rough)" />
+      <text class="score" x="36" y="66">친밀 80</text>
+    </g>
+    <g transform="translate(440 -2) rotate(-2)">
+      <path d="M0 20 C32 -8 147 -7 184 24 C219 55 185 104 98 106 C23 109 -31 60 0 20Z" fill="#fff1f4" stroke="#40332a" stroke-width="4" filter="url(#rough)" />
+      <text class="score fire" x="36" y="66">애정 85</text>
+    </g>
   </g>
 
-  <g transform="translate(220 740)">
-    <rect x="0" y="0" width="240" height="54" rx="27" fill="#ff7d8f" />
-    <text class="badgeText" x="120" y="36" text-anchor="middle">먼저 찾아감</text>
+  <!-- little sticky notes -->
+  <g transform="translate(805 724)">
+    <g transform="rotate(3)">
+      <path d="M4 0 L340 18 L318 156 L0 140 Z" fill="#fff0a8" stroke="#45372d" stroke-width="3.2" filter="url(#rough)" />
+      <text class="label" x="24" y="54">영혼의 싱크로율</text>
+      <text class="subnote" x="25" y="98">생각이 비슷해서</text>
+      <text class="subnote" x="25" y="132">속 깊은 말이 쉬움</text>
+    </g>
   </g>
-  <g transform="translate(480 740)">
-    <rect x="0" y="0" width="240" height="54" rx="27" fill="#00a495" />
-    <text class="badgeText" x="120" y="36" text-anchor="middle">기억해줌</text>
-  </g>
-  <g transform="translate(740 740)">
-    <rect x="0" y="0" width="240" height="54" rx="27" fill="#7b69ff" />
-    <text class="badgeText" x="120" y="36" text-anchor="middle">예측 가능한 다정함</text>
+  <g transform="translate(1068 714)">
+    <g transform="rotate(-5)">
+      <path d="M0 18 C54 -18 238 -8 284 38 C324 78 282 170 154 174 C54 178 -52 96 0 18Z" fill="#dff0ff" stroke="#45372d" stroke-width="3.5" filter="url(#rough)" />
+      <text class="warningLabel blue" x="26" y="66">강대강 주의</text>
+      <text class="warningSub" x="28" y="116">냉전은 짧게</text>
+      <text class="warningSub" x="28" y="154">오기는 빼기</text>
+    </g>
   </g>
 
-  <g transform="translate(472 620)" text-anchor="middle">
-    <text class="keyword" x="128" y="0">말이 통하는 낭만</text>
-    <text class="tiny" x="128" y="42">사주처럼 단정하지 않고, 둘의 리듬처럼 가볍게 보기</text>
+  <!-- small icons -->
+  <g opacity=".9" filter="url(#rough)">
+    <path d="M688 652 C662 621 608 646 624 692 C638 733 688 760 688 760 C688 760 738 733 752 692 C768 646 714 621 688 652Z" fill="#ff7e95" />
+    <path class="thin" d="M624 182 C652 154 684 154 708 184 C734 154 770 157 792 187" stroke="#f38a48" />
+    <path class="thin" d="M598 204 C632 231 684 230 727 204" stroke="#f38a48" />
+    <path class="thin" d="M1017 126 C1036 96 1074 99 1085 133 C1114 113 1144 138 1128 170 C1110 204 1057 205 1017 126Z" stroke="#d44d28" fill="none" />
+    <text class="tiny" x="982" y="214">건강 + 잔고도 같이 ↑</text>
   </g>
+
+  <!-- border doodles -->
+  <path class="thin" d="M55 56 C328 37 562 58 831 42 C1037 30 1191 50 1343 37" opacity=".38" />
+  <path class="thin" d="M50 934 C342 915 575 937 816 923 C1021 911 1160 932 1344 914" opacity=".38" />
+  <path class="thin" d="M48 70 C34 274 58 491 42 701 C35 806 45 880 55 930" opacity=".3" />
+  <path class="thin" d="M1346 62 C1368 280 1336 457 1354 684 C1362 801 1346 880 1338 932" opacity=".3" />
 </svg>
