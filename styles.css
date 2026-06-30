@@ -924,11 +924,38 @@ h1 {
   padding-top: 12px;
 }
 
+.comment-box:not([open]) {
+  padding-bottom: 2px;
+}
+
 .comment-head {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 3px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.comment-head::-webkit-details-marker {
+  display: none;
+}
+
+.comment-head::after {
+  content: "펼치기";
+  margin-left: auto;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  padding: 2px 8px;
+  background: var(--page);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.comment-box[open] > .comment-head::after {
+  content: "접기";
 }
 
 .comment-head h4 {
@@ -980,6 +1007,7 @@ h1 {
 }
 
 .comment-form input,
+.comment-form select,
 .comment-form textarea {
   width: 100%;
   border: 1px solid var(--line-dark);
@@ -989,6 +1017,11 @@ h1 {
   padding: 8px 9px;
   font: inherit;
   font-size: 0.92rem;
+}
+
+.comment-form select {
+  appearance: auto;
+  cursor: pointer;
 }
 
 .comment-form textarea {

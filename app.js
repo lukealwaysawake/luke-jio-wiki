@@ -74,7 +74,8 @@ window.addEventListener("scroll", setActiveToc, { passive: true });
 window.addEventListener("hashchange", openHashTarget);
 tocLinks.forEach((link) => link.addEventListener("click", () => setTimeout(openHashTarget, 0)));
 
-const COMMENT_NAME_KEY = "luke-jio-wiki-comment-name";
+const COMMENT_AUTHOR_KEY = "luke-jio-wiki-comment-author";
+const ALLOWED_COMMENT_AUTHORS = new Set(["동현", "Jio"]);
 const COMMENT_ENDPOINT = window.location.hostname.endsWith("github.io")
   ? "https://luke-jio-wiki.vercel.app/api/comments"
   : "/api/comments";
@@ -95,6 +96,15 @@ function makeTextNode(tag, className, text) {
   node.textContent = text;
   return node;
 }
+
+function normalizeCommentAuthor(value) {
+  const raw = String(value || "").trim();
+  if (ALLOWED_COMMENT_AUTHORS.has(raw)) return raw;
+  if (raw === "지오") return "Jio";
+  if (raw === "Donghyun" || raw === "Luke") return "동현";
+  return "";
+}
+
 
 function setCommentStatus(box, text, state = "") {
   const status = box.querySelector(".comment-status");
@@ -151,7 +161,7 @@ function renderCommentBox(box, comments) {
 
     const meta = document.createElement("div");
     meta.className = "comment-meta";
-    meta.appendChild(makeTextNode("strong", "comment-author", comment.name || "익명"));
+    meta.appendChild(makeTextNode("strong", "comment-author", normalizeCommentAuthor(comment.name) || "동현"));
     meta.appendChild(makeTextNode("time", "comment-time", formatCommentTime(comment.createdAt)));
 
     const message = makeTextNode("p", "comment-message", comment.message || "");
@@ -170,13 +180,14 @@ function setFormBusy(form, busy) {
 function initCommentBox(box) {
   const thread = box.dataset.commentThread;
   const form = box.querySelector(".comment-form");
-  const nameInput = box.querySelector('input[name="name"]');
+  const authorSelect = box.querySelector('select[name="name"]');
   const messageInput = box.querySelector('textarea[name="message"]');
 
   if (!thread) return;
-  const defaultName = box.dataset.defaultName || "동현";
-  const savedName = safeStorage.get(COMMENT_NAME_KEY);
-  if (nameInput) nameInput.value = box.dataset.defaultName || savedName || defaultName;
+  const defaultName = normalizeCommentAuthor(box.dataset.defaultName) || "동현";
+  const savedName = normalizeCommentAuthor(safeStorage.get(COMMENT_AUTHOR_KEY));
+  const initialName = box.dataset.defaultName ? defaultName : savedName || defaultName;
+  if (authorSelect) authorSelect.value = initialName;
 
   fetchComments(thread)
     .then((comments) => {
@@ -191,7 +202,7 @@ function initCommentBox(box) {
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = (nameInput?.value || defaultName).trim() || defaultName;
+    const name = normalizeCommentAuthor(authorSelect?.value) || defaultName;
     const message = (messageInput?.value || "").trim();
 
     if (!message) {
@@ -204,7 +215,7 @@ function initCommentBox(box) {
 
     try {
       const comments = await postComment(thread, { name, message });
-      safeStorage.set(COMMENT_NAME_KEY, name);
+      safeStorage.set(COMMENT_AUTHOR_KEY, name);
       if (messageInput) messageInput.value = "";
       renderCommentBox(box, comments);
       setCommentStatus(box, "남겼어.", "ok");

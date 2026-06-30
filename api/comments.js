@@ -17,6 +17,7 @@ const ALLOWED_THREADS = new Set([
   "_healthcheck",
 ]);
 const MAX_COMMENTS_PER_THREAD = 200;
+const ALLOWED_AUTHORS = new Set(["동현", "Jio"]);
 
 function setCorsHeaders(req, res) {
   const origin = req.headers.origin;
@@ -43,6 +44,14 @@ function normalizeText(value, maxLength) {
     .slice(0, maxLength);
 }
 
+function normalizeAuthor(value) {
+  const raw = normalizeText(value, 20);
+  if (ALLOWED_AUTHORS.has(raw)) return raw;
+  if (raw === "지오") return "Jio";
+  if (raw === "Donghyun" || raw === "Luke") return "동현";
+  return "";
+}
+
 function isValidThread(thread) {
   return typeof thread === "string" && ALLOWED_THREADS.has(thread);
 }
@@ -63,7 +72,7 @@ function normalizeStore(value) {
       .filter((comment) => comment && typeof comment === "object")
       .map((comment) => ({
         id: normalizeText(comment.id, 80) || `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
-        name: normalizeText(comment.name, 20) || "익명",
+        name: normalizeAuthor(comment.name) || "동현",
         message: normalizeText(comment.message, 600),
         createdAt: normalizeText(comment.createdAt, 40) || new Date().toISOString(),
       }))
@@ -148,7 +157,11 @@ async function appendComment(input) {
     return { status: 400, payload: { error: "invalid_thread" } };
   }
 
-  const name = normalizeText(input.name, 20) || "익명";
+  const name = normalizeAuthor(input.name);
+  if (!name || !ALLOWED_AUTHORS.has(name)) {
+    return { status: 400, payload: { error: "invalid_author" } };
+  }
+
   const message = normalizeText(input.message, 600);
   if (!message) {
     return { status: 400, payload: { error: "empty_message" } };
